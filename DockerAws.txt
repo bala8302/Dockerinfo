@@ -1,0 +1,338 @@
+91984@DESKTOP-U83U5RO MINGW64 ~/Desktop/Devops
+$ ssh -i docker.pem ec2-user@3.16.255.91
+The authenticity of host '3.16.255.91 (3.16.255.91)' can't be established.
+ECDSA key fingerprint is SHA256:3yU4jYiZ8dNeWCWuSrOMMZjUQwY/TCxA97eOwpOWwNw.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '3.16.255.91' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+1 package(s) needed for security, out of 3 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-26-250 ~]$ sudo -i
+[root@ip-172-31-26-250 ~]# client_loop: send disconnect: Connection reset by peer
+
+91984@DESKTOP-U83U5RO MINGW64 ~/Desktop/Devops
+$ sudo yum update -y
+bash: sudo: command not found
+
+91984@DESKTOP-U83U5RO MINGW64 ~/Desktop/Devops
+$ sudo -i
+bash: sudo: command not found
+
+91984@DESKTOP-U83U5RO MINGW64 ~/Desktop/Devops
+$ ssh -i docker.pem ec2-user@3.16.255.91
+Last login: Fri Jul  3 10:32:23 2020 from 122.164.38.148
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+1 package(s) needed for security, out of 3 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-26-250 ~]$ sudo yum update -y
+Loaded plugins: priorities, update-motd, upgrade-helper
+amzn-main                                                | 2.1 kB     00:00
+amzn-updates                                             | 3.8 kB     00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package bash.x86_64 0:4.2.46-28.37.amzn1 will be updated
+---> Package bash.x86_64 0:4.2.46-34.43.amzn1 will be an update
+---> Package initscripts.x86_64 0:9.03.58-1.39.amzn1 will be updated
+---> Package initscripts.x86_64 0:9.03.58-1.40.amzn1 will be an update
+---> Package libcgroup.x86_64 0:0.40.rc1-5.11.amzn1 will be updated
+---> Package libcgroup.x86_64 0:0.40.rc1-5.15.amzn1 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version                   Repository         Size
+================================================================================
+Updating:
+ bash             x86_64      4.2.46-34.43.amzn1        amzn-updates      1.4 M
+ initscripts      x86_64      9.03.58-1.40.amzn1        amzn-updates      1.8 M
+ libcgroup        x86_64      0.40.rc1-5.15.amzn1       amzn-updates      146 k
+
+Transaction Summary
+================================================================================
+Upgrade  3 Packages
+
+Total download size: 3.3 M
+Downloading packages:
+(1/3): bash-4.2.46-34.43.amzn1.x86_64.rpm                  | 1.4 MB   00:00
+(2/3): initscripts-9.03.58-1.40.amzn1.x86_64.rpm           | 1.8 MB   00:00
+(3/3): libcgroup-0.40.rc1-5.15.amzn1.x86_64.rpm            | 146 kB   00:00
+--------------------------------------------------------------------------------
+Total                                              8.1 MB/s | 3.3 MB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : bash-4.2.46-34.43.amzn1.x86_64                               1/6
+  Updating   : initscripts-9.03.58-1.40.amzn1.x86_64                        2/6
+  Updating   : libcgroup-0.40.rc1-5.15.amzn1.x86_64                         3/6
+  Cleanup    : libcgroup-0.40.rc1-5.11.amzn1.x86_64                         4/6
+  Cleanup    : initscripts-9.03.58-1.39.amzn1.x86_64                        5/6
+  Cleanup    : bash-4.2.46-28.37.amzn1.x86_64                               6/6
+  Verifying  : initscripts-9.03.58-1.40.amzn1.x86_64                        1/6
+  Verifying  : libcgroup-0.40.rc1-5.15.amzn1.x86_64                         2/6
+  Verifying  : bash-4.2.46-34.43.amzn1.x86_64                               3/6
+  Verifying  : bash-4.2.46-28.37.amzn1.x86_64                               4/6
+  Verifying  : initscripts-9.03.58-1.39.amzn1.x86_64                        5/6
+  Verifying  : libcgroup-0.40.rc1-5.11.amzn1.x86_64                         6/6
+
+Updated:
+  bash.x86_64 0:4.2.46-34.43.amzn1
+  initscripts.x86_64 0:9.03.58-1.40.amzn1
+  libcgroup.x86_64 0:0.40.rc1-5.15.amzn1
+
+Complete!
+[ec2-user@ip-172-31-26-250 ~]$ sudo amazon-linux-extras install docker
+sudo: amazon-linux-extras: command not found
+[ec2-user@ip-172-31-26-250 ~]$ sudo -i amazon-linux-extras install docker
+-bash: amazon-linux-extras: command not found
+[ec2-user@ip-172-31-26-250 ~]$ sudo -i
+[root@ip-172-31-26-250 ~]# sudo amazon-linux-extras install dockerr
+sudo: amazon-linux-extras: command not found
+[root@ip-172-31-26-250 ~]# yum update
+Loaded plugins: priorities, update-motd, upgrade-helper
+amzn-main                                                | 2.1 kB     00:00
+amzn-updates                                             | 3.8 kB     00:00
+No packages marked for update
+[root@ip-172-31-26-250 ~]# which amazon-linux-extras
+/usr/bin/which: no amazon-linux-extras in (/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/aws/bin:/root/bin)
+[root@ip-172-31-26-250 ~]# sudo yum install -y amazon-linux-extras
+Loaded plugins: priorities, update-motd, upgrade-helper
+No package amazon-linux-extras available.
+Error: Nothing to do
+[root@ip-172-31-26-250 ~]# yum-config-manager --enable rhui-REGION-rhel-server-extras
+Loaded plugins: priorities, update-motd, upgrade-helper
+[root@ip-172-31-26-250 ~]# yum -y install docker
+Loaded plugins: priorities, update-motd, upgrade-helper
+Resolving Dependencies
+--> Running transaction check
+---> Package docker.x86_64 0:19.03.6ce-4.58.amzn1 will be installed
+--> Processing Dependency: runc >= 1.0.0 for package: docker-19.03.6ce-4.58.amzn1.x86_64
+--> Processing Dependency: containerd >= 1.3.2 for package: docker-19.03.6ce-4.58.amzn1.x86_64
+--> Processing Dependency: xfsprogs for package: docker-19.03.6ce-4.58.amzn1.x86_64
+--> Processing Dependency: pigz for package: docker-19.03.6ce-4.58.amzn1.x86_64
+--> Processing Dependency: libseccomp.so.2()(64bit) for package: docker-19.03.6ce-4.58.amzn1.x86_64
+--> Running transaction check
+---> Package containerd.x86_64 0:1.3.2-1.3.amzn1 will be installed
+---> Package libseccomp.x86_64 0:2.3.1-2.4.amzn1 will be installed
+---> Package pigz.x86_64 0:2.3.3-1.6.amzn1 will be installed
+---> Package runc.x86_64 0:1.0.0-0.1.20200204.gitdc9208a.1.amzn1 will be installed
+---> Package xfsprogs.x86_64 0:4.5.0-18.23.amzn1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package     Arch    Version                                Repository     Size
+================================================================================
+Installing:
+ docker      x86_64  19.03.6ce-4.58.amzn1                   amzn-updates   44 M
+Installing for dependencies:
+ containerd  x86_64  1.3.2-1.3.amzn1                        amzn-updates   30 M
+ libseccomp  x86_64  2.3.1-2.4.amzn1                        amzn-main      79 k
+ pigz        x86_64  2.3.3-1.6.amzn1                        amzn-main      71 k
+ runc        x86_64  1.0.0-0.1.20200204.gitdc9208a.1.amzn1  amzn-updates  3.1 M
+ xfsprogs    x86_64  4.5.0-18.23.amzn1                      amzn-updates  1.7 M
+
+Transaction Summary
+================================================================================
+Install  1 Package (+5 Dependent packages)
+
+Total download size: 79 M
+Installed size: 273 M
+Downloading packages:
+(1/6): libseccomp-2.3.1-2.4.amzn1.x86_64.rpm               |  79 kB   00:00
+(2/6): pigz-2.3.3-1.6.amzn1.x86_64.rpm                     |  71 kB   00:00
+(3/6): runc-1.0.0-0.1.20200204.gitdc9208a.1.amzn1.x86_64.r | 3.1 MB   00:00
+(4/6): docker-19.03.6ce-4.58.amzn1.x86_64.rpm              |  44 MB   00:01
+(5/6): containerd-1.3.2-1.3.amzn1.x86_64.rpm               |  30 MB   00:01
+(6/6): xfsprogs-4.5.0-18.23.amzn1.x86_64.rpm               | 1.7 MB   00:00
+--------------------------------------------------------------------------------
+Total                                               44 MB/s |  79 MB  00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libseccomp-2.3.1-2.4.amzn1.x86_64                            1/6
+  Installing : runc-1.0.0-0.1.20200204.gitdc9208a.1.amzn1.x86_64            2/6
+  Installing : containerd-1.3.2-1.3.amzn1.x86_64                            3/6
+  Installing : pigz-2.3.3-1.6.amzn1.x86_64                                  4/6
+  Installing : xfsprogs-4.5.0-18.23.amzn1.x86_64                            5/6
+  Installing : docker-19.03.6ce-4.58.amzn1.x86_64                           6/6
+  Verifying  : xfsprogs-4.5.0-18.23.amzn1.x86_64                            1/6
+  Verifying  : libseccomp-2.3.1-2.4.amzn1.x86_64                            2/6
+  Verifying  : docker-19.03.6ce-4.58.amzn1.x86_64                           3/6
+  Verifying  : pigz-2.3.3-1.6.amzn1.x86_64                                  4/6
+  Verifying  : runc-1.0.0-0.1.20200204.gitdc9208a.1.amzn1.x86_64            5/6
+  Verifying  : containerd-1.3.2-1.3.amzn1.x86_64                            6/6
+
+Installed:
+  docker.x86_64 0:19.03.6ce-4.58.amzn1
+
+Dependency Installed:
+  containerd.x86_64 0:1.3.2-1.3.amzn1
+  libseccomp.x86_64 0:2.3.1-2.4.amzn1
+  pigz.x86_64 0:2.3.3-1.6.amzn1
+  runc.x86_64 0:1.0.0-0.1.20200204.gitdc9208a.1.amzn1
+  xfsprogs.x86_64 0:4.5.0-18.23.amzn1
+
+Complete!
+[root@ip-172-31-26-250 ~]# systemctl start docker
+-bash: systemctl: command not found
+[root@ip-172-31-26-250 ~]# sudo service docker start
+Starting cgconfig service:                                 [  OK  ]
+Starting docker:        .                                  [  OK  ]
+[root@ip-172-31-26-250 ~]# docker -version
+unknown shorthand flag: 'e' in -ersion
+See 'docker --help'.
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default
+                           "/root/.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level
+                           ("debug"|"info"|"warn"|"error"|"fatal")
+                           (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "/root/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "/root/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "/root/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  builder     Manage builds
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  engine      Manage the docker engine
+  image       Manage images
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker COMMAND --help' for more information on a command.
+
+[root@ip-172-31-26-250 ~]# docker --version
+Docker version 19.03.6-ce, build 369ce74
+[root@ip-172-31-26-250 ~]# dokcer info
+-bash: dokcer: command not found
+[root@ip-172-31-26-250 ~]# docker info
+Client:
+ Debug Mode: false
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 19.03.6-ce
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: ff48f57fc83a8c44cf4ad5d672424a98ba37ded6
+ runc version: dc9208a3303feef5b3839f4323d9beb36df0a9dd
+ init version: fec3683
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 4.14.181-108.257.amzn1.x86_64
+ Operating System: Amazon Linux AMI 2018.03
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 1
+ Total Memory: 985.5MiB
+ Name: ip-172-31-26-250
+ ID: QQYG:SQI5:EFLM:Z73J:72YM:U4MA:GV2X:6SJV:7QVN:32EX:MCO7:G6D2
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+[root@ip-172-31-26-250 ~]#

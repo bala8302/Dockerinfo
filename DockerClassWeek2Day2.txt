@@ -1,0 +1,182 @@
+-------------------------------------------------------------------------------------------------------
+docker info
+sudo service docker start
+docker --version
+yum -y install docker
+yum-config-manager --enable rhui-REGION-rhel-server-extras
+sudo yum install -y amazon-linux-extras
+which amazon linux extras
+yum update
+sudo amazon-linux-extras install docker
+
+----------------------------------------------------------------------------------------------------------
+sharing the code with the environment from dev to qa
+
+selenium grid all the nodes and hub in same network
+disadvtange time consuming, no auto scale up, network
+
+Docker Intro
+
+Build Ship Run
+
+build the code deploy(ship) it in cloud and run it
+
+docker we can create an image or use exist image from cloud and use it.
+
+Docker Components.
+
+Docker Engine -- create and runs docker container
+Docker Registry -- Docker image distribution repo
+Docker Swarm -- Host clustering container scheduling
+Docker Compose -- Define multi container appln
+Docker Machine -- Automated docker provisioning
+Kitematic --- Desktop User interface for docker
+--------------------------------------------------------------------
+Docker registry images
+
+Registry
+Image
+ex
+Container -  learn what is exact definition
+image -- 
+
+ex -- hub is one image and node is one image
+
+----------------------------------------------------------------------
+Image Layers
+
+Step 01 : Ubuntu os
+Step 02 : Java
+Step 03: Selenium version
+Step 04: Chrome browser + driver
+
+-----------------------------------------------------------------------
+Build - ship - Run
+
+hub.docker.com - offical cloud you will find all the images(dev build the image deployed in to cloud)
+
+pull the code to local
+how to run the image from container
+
+Commands for docker windows -- Running the docker in cmd or powershell. advise is to use powershell
+
+docker --version  -- docker engine version
+docker version  -- client and server version
+
+docker images --- list out all the images
+
+pull command for images
+
+docker pull <imagename:TagName:latest> latest keyword is not mandatory
+
+Accessing the image create a container (image is the class, container is the object)
+image runs on container 
+
+Run the container , give the image name as container
+
+docker run -d -p 4444:4444 --name sel_hub selenium/hub
+docker run -d -p 4444:4444 --name any name(container name) image name
+
+
+-d detach
+-it-interactive mode
+-P Random port
+
+how many containers running in  docker
+
+docker ps   (process status)
+
+Stoping the container
+
+docker stop containername/containerid
+
+docker stop sel_hub
+
+What are the containers activated/history
+docker ps -a
+
+docker rm  (Stop the container and remove)
+
+docker rm containerid/container name
+??????? remove all containers at one short
+
+after removing all containers
+
+docker ps
+
+-----------------------------------
+Remove the images
+
+
+
+docker rmi imagename/imageid
+
+docker images
+-------------------------------------
+
+Run the container
+docker run -d -p <port:port> --name<container_name> imagname
+docker run -d -p 4455:4444 --name selenium_hub selenium/hub
+selenium_hub- contiainer name
+selenium/hub - imagename
+
+then type docker ps
+
+docker images
+
+linking with another containers ( Selenium grid concepts)
+docker run -d -p 5901:5901 --link selenium-hub:hub -e NODE_MAX_INSTANCEs=5 -e NODE_MAX_SESSION=5 selenium/node-chrome-debug
+docker run -d -p 5901:5901 --link selenium-hub:hub -e NODE_MAX_INSTANCES=5 -e NODE_MAX_SESSION=5 selenium/node-chrome-debug
+
+docker run -d -p 5902:5901 --link selenium_hub:hub -e NODE_MAX_INSTANCEs=5 -e NODE_MAX_SESSION=5 selenium/node-firefox-debug
+5901 - default portno
+
+------------------------------------------------------------------------------
+
+docker logs containerid/container name
+
+
+------------------------------------------------------------
+
+AWS docker 
+
+ssh -i pemname.pem ec2-user@publicip 
+3.16.255.91
+
+after log in to aws move to root is sudo -i
+
+sudo -i
+
+docker pull selenium/hub
+
+docker pull selenium/node-chrome-debug
+
+start the docker hub
+docker run -d -p 4455:4444 --name selenium-hub selenium/hub
+
+http://3.16.255.91:4455/grid/console
+Quick commands
+
+ssh -i docker.pem ec2-user@3.16.255.91
+
+sudo -i
+docker ps -a 
+
+docker stop $(docker ps -a -q)
+
+docker rm $(docker ps -a -q)
+
+docker ps -a
+
+docker images
+
+https://34.72.50.172:4488/grid/console
+
+
+
+
+--------------------------------------------------------------------
+
+GCP
+
+gcloud compute ssh --project project-id --zone zone root@instance-name
