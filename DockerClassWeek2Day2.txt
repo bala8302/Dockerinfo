@@ -155,6 +155,8 @@ start the docker hub
 docker run -d -p 4455:4444 --name selenium-hub selenium/hub
 
 http://3.16.255.91:4455/grid/console
+
+--------------------------------------------------
 Quick commands
 
 ssh -i docker.pem ec2-user@3.16.255.91
@@ -172,7 +174,9 @@ docker images
 
 https://34.72.50.172:4488/grid/console
 
-
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi -f $(docker images -a -q)
 
 
 --------------------------------------------------------------------

@@ -1,0 +1,16 @@
+bala8302
+Jann2020
+
+devops devops
+
+Accesskey:
+
+AKIAZXHAS3NCOZX2EOGX
+
+
+Secret access key
+
+Q1CYs1JQEFSmtLsyUSLwI0sL77J5LBAITiEuzt6C
+
+
+arn:aws:iam::668338412356:user/bala8302

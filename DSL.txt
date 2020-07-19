@@ -1,0 +1,11 @@
+job('FirstDSL')
+{
+  description("DSL Project in the description")
+  scm{
+    git("https://github.com/bala8302/Git_Demo.git","master")
+    }
+  triggers{
+     cron("*****")
+  	}
+  
+}
